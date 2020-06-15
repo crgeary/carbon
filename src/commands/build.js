@@ -1,6 +1,5 @@
 const fs = require("fs-extra");
 const path = require("path");
-const { v5 } = require("uuid");
 const matter = require("gray-matter");
 const marked = require("marked");
 const recursive = require("recursive-readdir");
@@ -8,6 +7,7 @@ const { db } = require("../db");
 const { query } = require("../utils/query");
 const actions = require("../utils/actions");
 const chalk = require("chalk");
+const mime = require("mime-types");
 
 const sourceMarkdown = async (contentPath) => {
     let files = await recursive(contentPath, [`.md`]);
@@ -25,6 +25,7 @@ const sourceMarkdown = async (contentPath) => {
                 },
                 __carbon: {
                     type: `Markdown`,
+                    mediaType: mime.lookup(parsedFile.ext),
                 },
             });
         })

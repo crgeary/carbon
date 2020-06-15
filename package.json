@@ -29,6 +29,7 @@
         "gray-matter": "^4.0.2",
         "groq-js": "0.1.5",
         "marked": "^1.1.0",
+        "mime-types": "^2.1.27",
         "recursive-readdir": "^2.2.2",
         "uuid": "^8.1.0"
     }
