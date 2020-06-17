@@ -2,6 +2,7 @@
     "name": "@crgeary/carbon",
     "version": "0.0.1",
     "description": "A static site generator.",
+    "main": "./src/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -27,6 +28,7 @@
         "fs-extra": "^9.0.1",
         "glob": "^7.1.6",
         "gray-matter": "^4.0.2",
+        "groq": "^1.149.16",
         "groq-js": "0.1.5",
         "marked": "^1.1.0",
         "mime-types": "^2.1.27",

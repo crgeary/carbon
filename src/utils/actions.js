@@ -9,6 +9,14 @@ exports.createNode = (node) => {
     db.nodes.push(node);
 };
 
+exports.updateNode = (node) => {
+    const index = db.nodes.findIndex((n) => n.id === node.id);
+    if (index === -1) {
+        throw new Error(`Node ${node.id} was not found for update.`);
+    }
+    db.nodes[index] = node;
+};
+
 exports.createPage = (page) => {
     db.pages.push(page);
 };

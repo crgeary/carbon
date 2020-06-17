@@ -1,65 +1,42 @@
 const fs = require("fs-extra");
 const path = require("path");
-const matter = require("gray-matter");
-const marked = require("marked");
-const recursive = require("recursive-readdir");
 const { db } = require("../db");
 const { query } = require("../utils/query");
 const actions = require("../utils/actions");
 const chalk = require("chalk");
-const mime = require("mime-types");
+const { runHook } = require("../utils/plugins");
 
-const sourceMarkdown = async (contentPath) => {
-    let files = await recursive(contentPath, [`.md`]);
-    await Promise.all(
-        files.map(async (file) => {
-            const parsedFile = path.parse(file);
-            actions.createNode({
-                id: actions.createNodeId(file, `markdown`),
-                content: await fs.readFile(file, "utf8"),
-                file: {
-                    extension: parsedFile.ext.slice(1),
-                    name: parsedFile.name,
-                    base: parsedFile.base,
-                    path: file,
-                },
-                __carbon: {
-                    type: `Markdown`,
-                    mediaType: mime.lookup(parsedFile.ext),
-                },
-            });
-        })
-    );
-};
-
-const transformMarkdown = async () => {
-    for (let i = 0; i < db.nodes.length; i++) {
-        const doc = matter(db.nodes[i].content);
-        db.nodes[i] = {
-            ...db.nodes[i],
-            frontmatter: doc.data,
-            content: marked(doc.content),
-        };
-    }
-};
-
-const runHook = async (hook, data) => {
-    const js = require(path.join(process.cwd(), "/carbon.js"));
-    if (hook in js) {
-        await js.onCreate(data);
-    }
-};
-
-module.exports = async () => {
+const init = async () => {
     console.log(chalk.cyan`build start`);
+    // @todo setup config, check for files etc
+};
 
-    await sourceMarkdown(path.join(process.cwd(), "/content"));
-    await transformMarkdown();
+const source = async () => {
+    console.log(chalk.cyan`sourcing content`);
+    await runHook(`source`, { actions });
+};
 
-    await runHook(`onCreate`, { actions, query });
+const transform = async () => {
+    console.log(chalk.cyan`transforming content`);
+    for (let i = 0; i < db.nodes.length; i++) {
+        await runHook(`transform`, {
+            node: db.nodes[i],
+            actions,
+            query,
+        });
+    }
+};
 
+const create = async () => {
+    console.log(chalk.cyan`creating pages`);
+    await runHook(`create`, { actions, query });
+};
+
+const build = async () => {
+    console.log(chalk.cyan`building site`);
+    await runHook(`build`);
     await Promise.all(
-        db.pages.map((page) => {
+        db.pages.map(async (page) => {
             return fs.outputFile(
                 path.resolve(
                     process.cwd(),
@@ -67,10 +44,21 @@ module.exports = async () => {
                     page.path === "/" ? `` : page.path,
                     "index.html"
                 ),
-                require(page.template)({ props: page.context })
+                await require(page.template)({ props: page.context })
             );
         })
     );
+};
 
+const finish = async () => {
     console.log(chalk.cyan`build finish`);
+};
+
+module.exports = async () => {
+    await init();
+    await source();
+    await transform();
+    await create();
+    await build();
+    await finish();
 };
