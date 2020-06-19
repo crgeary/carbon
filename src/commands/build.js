@@ -5,6 +5,7 @@ const actions = require("../utils/actions");
 const chalk = require("chalk");
 const { runHook } = require("../utils/plugins");
 const edge = require("edge.js");
+const Page = require("../Page");
 
 const init = async () => {
     console.log(chalk.cyan`build start`);
@@ -38,17 +39,15 @@ const build = async () => {
     console.log(chalk.cyan`building site`);
     await runHook(`build`);
 
+    await fs.copy(
+        path.join(process.cwd(), "static"),
+        path.join(process.cwd(), "public")
+    );
+
     await Promise.all(
-        actions.getPages().map(async (page) => {
-            return fs.outputFile(
-                path.resolve(
-                    process.cwd(),
-                    "public",
-                    page.path === "/" ? `` : page.path,
-                    "index.html"
-                ),
-                edge.render(page.template, page.context)
-            );
+        actions.getPages().map(async (p) => {
+            const page = new Page(p);
+            return fs.outputFile(page.absolutePath(), page.render());
         })
     );
 };
