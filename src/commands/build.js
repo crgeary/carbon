@@ -5,6 +5,7 @@ const { query } = require("../utils/query");
 const actions = require("../utils/actions");
 const chalk = require("chalk");
 const { runHook } = require("../utils/plugins");
+const edge = require("edge.js");
 
 const init = async () => {
     console.log(chalk.cyan`build start`);
@@ -35,6 +36,10 @@ const create = async () => {
 const build = async () => {
     console.log(chalk.cyan`building site`);
     await runHook(`build`);
+
+    edge.registerViews(path.join(process.cwd(), "resources/views"));
+    edge.registerViews(path.join(process.cwd(), "resources/presenters"));
+
     await Promise.all(
         db.pages.map(async (page) => {
             return fs.outputFile(
@@ -44,7 +49,7 @@ const build = async () => {
                     page.path === "/" ? `` : page.path,
                     "index.html"
                 ),
-                await require(page.template)({ props: page.context })
+                edge.render(page.template, page.context)
             );
         })
     );
