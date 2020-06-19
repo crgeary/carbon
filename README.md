@@ -8,10 +8,10 @@ Not intended for production use. This has been heavily inspired by [Gatsby](http
 
 ## Features
 
-🔌&nbsp; Pluggable
-📄&nbsp; Multiple content sources
-🔎&nbsp; Queries via [GROQ](https://sanity-io.github.io/GROQ/)
-🏗&nbsp; Templates via Edge.js
+-   🔌&nbsp; Pluggable
+-   📄&nbsp; Multiple content sources
+-   🔎&nbsp; Queries via [GROQ](https://sanity-io.github.io/GROQ/)
+-   🏗&nbsp; Templates via Edge.js
 
 ## Support
 
