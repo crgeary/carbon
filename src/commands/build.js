@@ -6,15 +6,23 @@ const chalk = require("chalk");
 const { runHook } = require("../utils/plugins");
 const edge = require("edge.js");
 const Page = require("../Page");
+const config = require("../config");
 
 const init = async () => {
     console.log(chalk.cyan`build start`);
-    edge.registerViews(path.join(process.cwd(), "resources/views"));
-    edge.registerPresenters(path.join(process.cwd(), "resources/presenters"));
+    edge.registerViews(config.paths.views);
+    edge.registerPresenters(config.paths.presenters);
 };
 
 const source = async () => {
     console.log(chalk.cyan`sourcing content`);
+    actions.createNode({
+        ...config.site,
+        id: actions.createNodeId(process.cwd(), `carbon:config`),
+        __carbon: {
+            type: `CONFIG`,
+        },
+    });
     await runHook(`source`, { actions });
 };
 
