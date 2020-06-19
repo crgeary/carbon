@@ -9,6 +9,10 @@ exports.createNode = (node) => {
     db.nodes.push(node);
 };
 
+exports.getNodes = () => {
+    return db.nodes;
+};
+
 exports.updateNode = (node) => {
     const index = db.nodes.findIndex((n) => n.id === node.id);
     if (index === -1) {
@@ -19,4 +23,8 @@ exports.updateNode = (node) => {
 
 exports.createPage = (page) => {
     db.pages.push(page);
+};
+
+exports.getPages = () => {
+    return db.pages;
 };
