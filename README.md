@@ -11,13 +11,15 @@ Built as an educational project, not intended for production use. This has been 
 -   🔌&nbsp; Pluggable
 -   📄&nbsp; Multiple content sources
 -   🔎&nbsp; Queries via [GROQ](https://sanity-io.github.io/GROQ/)
--   🏗&nbsp; Templates via [Edge.js](https://edge.adonisjs.com/)
+-   🏗&nbsp; Templates via [Edge](https://edge.adonisjs.com/)
 
 ## Installation
 
 ```
 npm i https://github.com/crgeary/carbon.git
 ```
+
+## Examples
 
 Check out the [example website](https://github.com/crgeary/carbon-www) for usage.
 
@@ -58,11 +60,11 @@ Carbon will automatically create "pretty" URLs from your `path`. If you supply `
 
 ## Templates
 
-Templates can be written with [Edge.js](https://edge.adonisjs.com/), or CommonJS. They exists at `/resources/views` from the root of your project.
+Templates can be written with [Edge](https://edge.adonisjs.com/), or CommonJS. They exists at `/resources/views` from the root of your project.
 
-### Edge.js
+### Edge
 
-Edge.js templates are as documented in the [Edge.js documentation](https://edge.adonisjs.com/). The file name for these templates must use the `.edge` extension in order for Carbon to treat them as Edge.js templates. Any other extensions will be treated as CommonJS.
+Edge templates are as documented in the [Edge documentation](https://edge.adonisjs.com/). The file name for these templates must use the `.edge` extension in order for Carbon to treat them as Edge templates. Any other extensions will be treated as CommonJS.
 
 #### Presenters
 
