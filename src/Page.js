@@ -1,5 +1,6 @@
 const path = require("path");
 const edge = require("edge.js");
+const mime = require("mime-types");
 
 const config = require("./config");
 
@@ -30,6 +31,10 @@ class Page {
             return this.template;
         }
         return path.join(config.paths.views, this.template);
+    }
+    contentType() {
+        const parts = path.parse(this.absolutePath());
+        return mime.lookup(parts.ext.slice(1));
     }
     render() {
         if (this.isEdgeTemplate()) {

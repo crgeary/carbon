@@ -13,4 +13,11 @@ program
         await require("../src/commands/build")();
     });
 
+program
+    .command(`develop`)
+    .description(`Start a carbon development`)
+    .action(async () => {
+        await require("../src/commands/develop")();
+    });
+
 program.parse(process.argv);

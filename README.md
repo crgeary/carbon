@@ -12,6 +12,7 @@ Built as an educational project, not intended for production use. This has been 
 -   📄&nbsp; Multiple content sources
 -   🔎&nbsp; Queries via [GROQ](https://sanity-io.github.io/GROQ/)
 -   🏗&nbsp; Templates via [Edge](https://edge.adonisjs.com/)
+-   ⛔️&nbsp; Generates no JavaScript
 
 ## Installation
 
