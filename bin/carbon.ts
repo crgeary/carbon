@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
-const { program } = require("commander");
+import { program } from "commander";
 
-const { version } = require("../package.json");
+import build from "../src/commands/build";
+import develop from "../src/commands/develop";
+
+import { version } from "../package.json";
 
 program.version(version);
 
@@ -10,14 +13,14 @@ program
     .command(`build`)
     .description(`Build carbon website`)
     .action(async () => {
-        await require("../src/commands/build")();
+        await build();
     });
 
 program
     .command(`develop`)
     .description(`Start a carbon development`)
     .action(async () => {
-        await require("../src/commands/develop")();
+        await develop();
     });
 
 program.parse(process.argv);

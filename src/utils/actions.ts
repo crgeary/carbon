@@ -1,19 +1,19 @@
-const { v5 } = require("uuid");
-const { db } = require("../db");
+import { v5 } from "uuid";
+import { db } from "../db";
 
-exports.createNodeId = (string, namespace) => {
+export const createNodeId = (string, namespace) => {
     return v5(string, v5(namespace, `c8256d5f-abef-4d14-ab6d-489f2819b8ce`));
 };
 
-exports.createNode = (node) => {
+export const createNode = (node) => {
     db.nodes.push(node);
 };
 
-exports.getNodes = () => {
+export const getNodes = () => {
     return db.nodes;
 };
 
-exports.updateNode = (node) => {
+export const updateNode = (node) => {
     const index = db.nodes.findIndex((n) => n.id === node.id);
     if (index === -1) {
         throw new Error(`Node ${node.id} was not found for update.`);
@@ -21,10 +21,10 @@ exports.updateNode = (node) => {
     db.nodes[index] = node;
 };
 
-exports.createPage = (page) => {
+export const createPage = (page) => {
     db.pages.push(page);
 };
 
-exports.getPages = () => {
+export const getPages = () => {
     return db.pages;
 };

@@ -1,16 +1,16 @@
-const path = require("path");
-const detect = require("detect-port");
-const chalk = require("chalk");
-const actions = require("../utils/actions");
-const Page = require("../Page");
-const { runHook } = require("../utils/plugins");
-const { query } = require("../utils/query");
+import path from "path";
+import detect from "detect-port";
+import chalk from "chalk";
+import * as actions from "../utils/actions";
+import Page from "../Page";
+import { runHook } from "../utils/plugins";
+import { query } from "../utils/query";
 
-const express = require("express");
+import express from "express";
 const app = express();
 
-const edge = require("edge.js");
-const config = require("../config");
+import edge from "edge.js";
+import config from "../config";
 
 // --
 
@@ -51,7 +51,7 @@ const create = async () => {
 
 // --
 
-module.exports = async () => {
+export default async () => {
     app.use(express.static(path.join(process.cwd(), "static")));
 
     await init();

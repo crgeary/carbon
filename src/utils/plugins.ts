@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 const config = require(path.join(process.cwd(), `carbon.config`));
 
 const carbonFile = `carbon.server`;
@@ -14,7 +14,7 @@ const getPluginRequirePath = (name) => {
     return name;
 };
 
-const runHook = async (hook, data) => {
+const runHook = async (hook, data?) => {
     const { plugins } = config;
     for (let i = 0; i < plugins.length; i++) {
         const carbonServer = require(getPluginRequirePath(plugins[i].resolve));
@@ -33,4 +33,4 @@ const runHook = async (hook, data) => {
     }
 };
 
-exports.runHook = runHook;
+export { runHook };

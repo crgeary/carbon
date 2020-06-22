@@ -1,12 +1,12 @@
-const fs = require("fs-extra");
-const path = require("path");
-const { query } = require("../utils/query");
-const actions = require("../utils/actions");
-const chalk = require("chalk");
-const { runHook } = require("../utils/plugins");
-const edge = require("edge.js");
-const Page = require("../Page");
-const config = require("../config");
+import fs from "fs-extra";
+import path from "path";
+import { query } from "../utils/query";
+import * as actions from "../utils/actions";
+import chalk from "chalk";
+import { runHook } from "../utils/plugins";
+import edge from "edge.js";
+import Page from "../Page";
+import config from "../config";
 
 const init = async () => {
     console.log(chalk.cyan`build start`);
@@ -64,7 +64,7 @@ const finish = async () => {
     console.log(chalk.cyan`build finish`);
 };
 
-module.exports = async () => {
+export default async () => {
     await init();
     await source();
     await transform();

@@ -1,10 +1,14 @@
-const path = require("path");
-const edge = require("edge.js");
-const mime = require("mime-types");
+import path from "path";
+import edge from "edge.js";
+import mime from "mime-types";
 
-const config = require("./config");
+import config from "./config";
 
 class Page {
+    path: string;
+    template: string;
+    params: object = {};
+    isRawPath: boolean = false;
     constructor(page) {
         this.path = page.path;
         this.template = page.template;
@@ -44,4 +48,4 @@ class Page {
     }
 }
 
-module.exports = Page;
+export default Page;

@@ -1,7 +1,7 @@
-const matter = require("gray-matter");
-const marked = require("marked");
+import matter from "gray-matter";
+import marked from "marked";
 
-exports.transform = async ({ actions, node }) => {
+export const transform = async ({ actions, node }) => {
     const { mediaType } = node.__carbon;
     if (!mediaType || mediaType !== `text/markdown`) {
         return node;

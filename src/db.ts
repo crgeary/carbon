@@ -3,4 +3,4 @@ const entries = {
     pages: [],
 };
 
-exports.db = entries;
+export const db = entries;

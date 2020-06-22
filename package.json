@@ -2,11 +2,13 @@
     "name": "@crgeary/carbon",
     "version": "0.0.1",
     "description": "A static site generator.",
-    "main": "./src/index.js",
+    "main": "./dist/src/index.js",
     "scripts": {
+        "aprebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+        "build": "tsc",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "bin": "./bin/carbon.js",
+    "bin": "./dist/bin/carbon.js",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "homepage": "https://github.com/crgeary/carbon#readme",
@@ -37,5 +39,11 @@
         "mime-types": "^2.1.27",
         "recursive-readdir": "^2.2.2",
         "uuid": "^8.1.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.6",
+        "@types/node": "^14.0.13",
+        "tslint": "^6.1.2",
+        "typescript": "^3.9.5"
     }
 }

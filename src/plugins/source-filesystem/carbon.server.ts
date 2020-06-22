@@ -1,9 +1,9 @@
-const path = require("path");
-const fs = require("fs-extra");
-const recursive = require("recursive-readdir");
-const mime = require("mime-types");
+import path from "path";
+import fs from "fs-extra";
+import recursive from "recursive-readdir";
+import mime from "mime-types";
 
-exports.source = async ({ actions, plugin }) => {
+export const source = async ({ actions, plugin }) => {
     const { options } = plugin;
 
     let files = await recursive(options.path, [`.md`, `.markdown`]);
