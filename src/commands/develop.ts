@@ -64,8 +64,12 @@ export default async () => {
         const page = actions.getPages().find((p) => p.path === slug);
         if (page) {
             const pageObject = new Page(page);
+            const contentType = pageObject.contentType();
 
-            res.setHeader("content-type", pageObject.contentType());
+            if (contentType) {
+                res.setHeader("content-type", contentType);
+            }
+
             return res.send(pageObject.render());
         }
         return res.send("<h1>404</h1>");

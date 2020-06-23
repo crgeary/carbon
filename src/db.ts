@@ -1,6 +1,6 @@
-const entries = {
-    nodes: [],
-    pages: [],
-};
+import { Node, Page } from "./interfaces";
 
-export const db = entries;
+const nodes: Node[] = [];
+const pages: Page[] = [];
+
+export const db = { nodes, pages };

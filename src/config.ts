@@ -1,6 +1,8 @@
 import path from "path";
 
-const load = () => {
+import { Config as IConfig } from "./interfaces";
+
+const load = (): IConfig => {
     const defaultConfig = {
         site: {},
         paths: {
@@ -11,10 +13,10 @@ const load = () => {
     };
     const configPath = path.join(process.cwd(), "carbon.config");
     console.log(configPath);
-    const siteConfig = require(configPath);
+    const siteConfig: IConfig = require(configPath);
     return Object.assign({}, defaultConfig, siteConfig);
 };
 
-const config = load();
+const config: IConfig = load();
 
 export default config;
