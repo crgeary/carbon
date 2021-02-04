@@ -1,0 +1,26 @@
+{
+    "name": "@crgeary/carbon",
+    "description": "A static site generator.",
+    "version": "0.0.1",
+    "author": "Christopher Geary <hello@crgeary.com>",
+    "license": "MIT",
+    "bin": "./dist/bin/carbon.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/crgeary/carbon.git",
+        "directory": "packages/carbon"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "commander": "^7.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.25",
+        "typescript": "^4.1.3"
+    }
+}

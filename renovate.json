@@ -1,0 +1,11 @@
+{
+    "extends": ["config:base"],
+    "commitBodyTable": true,
+    "schedule": ["after 7am and before 4pm every weekday"],
+    "packageRules": [
+        {
+            "updateTypes": ["minor", "patch", "pin", "digest"],
+            "automerge": true
+        }
+    ]
+}
