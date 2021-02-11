@@ -3,8 +3,13 @@
     "private": true,
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
+    "workspaces": [
+        "./packages/*",
+        "www"
+    ],
     "scripts": {
-        "lerna": "lerna"
+        "lerna": "lerna",
+        "watch": "lerna run watch --no-sort --stream"
     },
     "devDependencies": {
         "lerna": "^3.22.1"
