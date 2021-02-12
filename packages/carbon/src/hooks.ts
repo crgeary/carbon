@@ -1,9 +1,9 @@
 import { db } from "./db";
 import { loadPlugin } from "./plugins";
 
-import { NodeHooksList, NodeHookParams } from "./types";
+import { HooksList, HookParamsWithoutPlugin } from "..";
 
-export const run = async (name: NodeHooksList, args: NodeHookParams) => {
+export const run = async (name: HooksList, args: HookParamsWithoutPlugin) => {
     const plugins = db.get("plugins").value();
     for (let i = 0; i < plugins.length; i++) {
         const plugin = plugins[i];

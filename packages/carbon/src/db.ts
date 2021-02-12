@@ -1,7 +1,7 @@
 import low from "lowdb";
 import Memory from "lowdb/adapters/Memory";
 
-import { InternalDatabaseSchema } from "./types";
+import { InternalDatabaseSchema } from "..";
 
 const db = low(new Memory<InternalDatabaseSchema>(""));
 

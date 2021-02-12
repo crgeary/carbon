@@ -2,7 +2,7 @@ import { v5 as uuidv5 } from "uuid";
 
 import { db } from "./db";
 
-import { Node, Route } from "./types";
+import { Node, Route } from "..";
 
 const seed = `c8256d5f-abef-4d14-ab6d-489f2819b8ce`;
 

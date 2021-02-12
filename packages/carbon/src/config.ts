@@ -2,7 +2,7 @@ import path from "path";
 
 import { db } from "./db";
 
-import { Config } from "./types";
+import { Config } from "..";
 
 export const loadConfig = (dir: string): Config => {
     const config = require(path.join(dir, "carbon.config"));
