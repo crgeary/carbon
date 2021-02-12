@@ -3,7 +3,8 @@ import fs from "fs-extra";
 
 import { loadConfig } from "../config";
 import { run } from "../hooks";
-import { db } from "../db";
+import { normalizePath } from "../routes";
+
 import {
     createNode,
     createNodeId,
@@ -33,7 +34,7 @@ export default async ({ dir }: { dir: string }) => {
     const routes = getRoutes();
     for (let i = 0; i < routes.length; i++) {
         await fs.outputFile(
-            path.join(dir, "dist", routes[i].path),
+            path.join(dir, "dist", normalizePath(routes[i].path)),
             JSON.stringify(routes[i])
         );
     }
