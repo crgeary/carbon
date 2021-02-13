@@ -8,6 +8,7 @@
         "www"
     ],
     "scripts": {
+        "bootstrap": "lerna bootstrap",
         "lerna": "lerna",
         "watch": "lerna run watch --no-sort --stream"
     },
