@@ -15,7 +15,7 @@ import {
 
 import { Actions } from "../..";
 
-export default async ({ dir }: { dir: string }) => {
+export const handler = async ({ dir }: { dir: string }) => {
     loadConfig(dir);
     const actions: Actions = {
         createNode,

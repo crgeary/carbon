@@ -4,7 +4,7 @@
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "workspaces": [
-        "./packages/*",
+        "packages/*",
         "www"
     ],
     "scripts": {
