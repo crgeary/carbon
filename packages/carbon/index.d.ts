@@ -14,6 +14,8 @@ export interface Node {
     __carbon: {
         type: string;
         mediaType?: string | null;
+        content?: string;
+        contentDigest: string;
     };
     [key: string]: unknown;
 }
