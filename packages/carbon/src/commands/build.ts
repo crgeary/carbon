@@ -5,7 +5,7 @@ import { loadConfig } from '../config';
 import { run } from '../hooks';
 import { normalizePath } from '../routes';
 
-import { createNode, createNodeId, getNodes, createRoute, getRoutes } from '../actions';
+import { createNode, createNodeId, updateNode, getNodes, createRoute, getRoutes } from '../actions';
 
 import { Actions } from '../..';
 
@@ -14,12 +14,17 @@ export const handler = async ({ dir }: { dir: string }) => {
     const actions: Actions = {
         createNode,
         createNodeId,
+        updateNode,
         getNodes,
         createRoute,
         getRoutes,
     };
     await run('source', { actions });
-    await run('transform', { actions });
+
+    // @todo: chunk
+    const nodes = getNodes().map((node) => run('transform', { actions, node }));
+    await Promise.all(nodes);
+
     await run('create', { actions });
     await run('build', { actions });
 

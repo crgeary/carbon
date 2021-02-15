@@ -11,11 +11,15 @@ export const createNodeId = (string: string, namespace: string): string => {
 };
 
 export const createNode = (node: Node): void => {
-    db.get('nodes').push(node).value();
+    db.get('nodes').push(node).write();
 };
 
 export const getNodes = (): Node[] => {
     return db.get('nodes').value();
+};
+
+export const updateNode = (node: Node): void => {
+    db.get('nodes').find({ id: node.id }).assign(node).write();
 };
 
 export const createRoute = (route: Route): void => {

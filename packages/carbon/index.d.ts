@@ -28,6 +28,7 @@ export interface Route {
 export interface Actions {
     createNodeId(string: string, namespace: string): string;
     createNode(node: Node): void;
+    updateNode(node: Node): void;
     getNodes(): Node[];
     createRoute(route: Route): void;
     getRoutes(): Route[];
