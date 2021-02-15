@@ -1,5 +1,5 @@
-import path from "path";
-import resolveCwd from "resolve-cwd";
+import path from 'path';
+import resolveCwd from 'resolve-cwd';
 
 const packageName = `@crgeary/carbon`;
 
@@ -30,12 +30,8 @@ export const runLocalCommand = async (command: string, args: object) => {
 export const hasLocalCarbon = (): boolean => {
     let hasCarbon = false;
     try {
-        const { dependencies, devDependencies } = require(path.resolve(
-            `package.json`
-        ));
-        hasCarbon =
-            (dependencies && dependencies[packageName]) ||
-            (devDependencies && devDependencies[packageName]);
+        const { dependencies, devDependencies } = require(path.resolve(`package.json`));
+        hasCarbon = (dependencies && dependencies[packageName]) || (devDependencies && devDependencies[packageName]);
     } catch (err) {}
     return !!hasCarbon;
 };

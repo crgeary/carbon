@@ -9,6 +9,7 @@
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap",
+        "format": "lerna run format",
         "lerna": "lerna",
         "watch": "lerna run watch --no-sort --stream"
     },

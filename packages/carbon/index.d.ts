@@ -49,7 +49,7 @@ export interface Hooks {
     build(params: HookParams): Promise<never>;
 }
 
-export type HooksList = "source" | "transform" | "create" | "build";
+export type HooksList = 'source' | 'transform' | 'create' | 'build';
 
 export interface InternalDatabaseSchema {
     nodes: Node[];

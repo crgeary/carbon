@@ -9,6 +9,7 @@
     },
     "scripts": {
         "build": "tsc",
+        "format": "prettier --ignore-path .gitignore --write .",
         "watch": "tsc --project tsconfig.json --watch"
     },
     "repository": {
@@ -25,8 +26,11 @@
         "update-notifier": "^5.1.0"
     },
     "devDependencies": {
+        "@crgeary/configuration-prettier": "^1.0.3",
         "@types/node": "^14.14.25",
         "@types/update-notifier": "^5.0.0",
+        "prettier": "^2.2.1",
         "typescript": "^4.1.3"
-    }
+    },
+    "prettier": "@crgeary/configuration-prettier"
 }

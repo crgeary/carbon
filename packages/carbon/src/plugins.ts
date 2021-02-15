@@ -1,7 +1,7 @@
-import path from "path";
+import path from 'path';
 
-import { Hooks } from "..";
+import { Hooks } from '..';
 
 export const loadPlugin = (resolvable: string): Hooks => {
-    return require(path.join(resolvable, "carbon.server"));
+    return require(path.join(resolvable, 'carbon.server'));
 };

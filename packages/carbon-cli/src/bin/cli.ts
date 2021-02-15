@@ -1,9 +1,9 @@
-import { program } from "commander";
-import updateNotifier from "update-notifier";
+import { program } from 'commander';
+import updateNotifier from 'update-notifier';
 
-import { hasLocalCarbon, runLocalCommand } from "../local";
+import { hasLocalCarbon, runLocalCommand } from '../local';
 
-import pkg from "../../package.json";
+import pkg from '../../package.json';
 
 updateNotifier({ pkg }).notify({ isGlobal: true });
 
@@ -14,9 +14,9 @@ program
     .description(`Build carbon website for production`)
     .action(async () => {
         if (!hasLocalCarbon()) {
-            throw new Error("Command must be run within a Carbon project.");
+            throw new Error('Command must be run within a Carbon project.');
         }
-        await runLocalCommand("build", { dir: process.cwd() });
+        await runLocalCommand('build', { dir: process.cwd() });
     });
 
 program.parse(process.argv);
