@@ -37,6 +37,7 @@ export interface Actions {
 
 export interface HookParamsWithoutPlugin {
     actions: Actions;
+    node?: Node;
     [key: string]: unknown;
 }
 
