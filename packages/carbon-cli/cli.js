@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require("./dist/src/bin/cli");
+require("./dist/bin/cli");
