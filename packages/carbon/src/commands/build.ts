@@ -5,7 +5,7 @@ import { loadConfig } from '../config';
 import { run } from '../hooks';
 import { normalizePath } from '../routes';
 
-import { createNode, createNodeId, updateNode, getNodes, createRoute, getRoutes } from '../actions';
+import { createNode, createNodeId, updateNode, getNodes, createRoute, getRoutes, getNodeContent } from '../actions';
 
 import { Actions } from '../..';
 
@@ -18,6 +18,7 @@ export const handler = async ({ dir }: { dir: string }) => {
         getNodes,
         createRoute,
         getRoutes,
+        getNodeContent,
     };
     await run('source', { actions });
 

@@ -22,6 +22,11 @@ export const updateNode = (node: Node): void => {
     db.get('nodes').find({ id: node.id }).assign(node).write();
 };
 
+export const getNodeContent = async (node: Node): Promise<string> => {
+    // todo: allow for custom loaders
+    return node.__carbon.content;
+};
+
 export const createRoute = (route: Route): void => {
     db.get('routes').push(route).value();
 };

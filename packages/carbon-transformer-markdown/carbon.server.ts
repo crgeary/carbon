@@ -1,13 +1,14 @@
 import * as matter from 'gray-matter';
 import * as marked from 'marked';
 
-export const transform = async ({ actions: { updateNode }, node }) => {
+export const transform = async ({ actions: { updateNode, getNodeContent }, node }) => {
     const { mediaType } = node.__carbon;
     if (!mediaType || mediaType !== `text/markdown`) {
         return node;
     }
 
-    const doc = matter(node.__carbon.content);
+    const content = await getNodeContent(node);
+    const doc = matter(content);
     updateNode({
         ...node,
         __carbon: {

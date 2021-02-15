@@ -14,7 +14,7 @@ export interface Node {
     __carbon: {
         type: string;
         mediaType?: string | null;
-        content?: string;
+        content: string;
         contentDigest: string;
     };
     [key: string]: unknown;
@@ -32,6 +32,7 @@ export interface Actions {
     getNodes(): Node[];
     createRoute(route: Route): void;
     getRoutes(): Route[];
+    getNodeContent(node: Node): Promise<string>;
 }
 
 export interface HookParamsWithoutPlugin {
