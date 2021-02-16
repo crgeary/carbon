@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "fs-extra": "^9.1.0",
+        "lodash": "^4.17.20",
         "mime-types": "^2.1.28",
         "recursive-readdir": "^2.2.2"
     },
