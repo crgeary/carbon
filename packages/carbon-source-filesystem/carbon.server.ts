@@ -9,7 +9,7 @@ import { HookParams } from '@crgeary/carbon';
 export const source = async ({ actions, plugin }: HookParams) => {
     const { options } = plugin;
 
-    let files = await recursive(options.path, [`.md`, `.markdown`, `.html`]);
+    let files = await recursive(options.path, options.ignore || []);
 
     await Promise.all(
         files.map(async (file) => {
