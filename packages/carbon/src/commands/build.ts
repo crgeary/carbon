@@ -33,6 +33,7 @@ export const handler = async ({ dir }: { dir: string }) => {
     await run('create', { actions });
     await run('build', { actions });
 
+    await fs.emptyDir(path.join(dir, 'dist'));
     await fs.copy(path.join(dir, 'static'), path.join(dir, 'dist'));
 
     const routes = getRoutes();
