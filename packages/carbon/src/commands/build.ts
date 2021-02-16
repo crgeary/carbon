@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
+import { chunk } from 'lodash';
 
 import { loadConfig } from '../config';
 import { run } from '../hooks';
@@ -22,9 +23,12 @@ export const handler = async ({ dir }: { dir: string }) => {
     };
     await run('source', { actions });
 
-    // @todo: chunk
     const nodes = getNodes().map((node) => run('transform', { actions, node }));
-    await Promise.all(nodes);
+    const chunks = chunk(nodes, 250);
+
+    for (let i = 0; i < chunks.length; i++) {
+        await Promise.all(chunks[i]);
+    }
 
     await run('create', { actions });
     await run('build', { actions });
