@@ -24,6 +24,9 @@ export const runHandler = async (handler: any, args: object) => {
 };
 
 export const runLocalCommand = async (command: string, args: object) => {
+    if (!hasLocalCarbon()) {
+        throw new Error('Command must be run within a Carbon project.');
+    }
     await resolveLocalHandler(resolveLocalCommandPath(command))(args);
 };
 
