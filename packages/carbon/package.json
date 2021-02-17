@@ -20,6 +20,7 @@
     "dependencies": {
         "@crgeary/carbon-cli": "^0.0.1",
         "fs-extra": "^9.1.0",
+        "groq-js": "^0.2.0",
         "lodash": "^4.17.20",
         "lowdb": "^1.0.0",
         "uuid": "^8.3.2"

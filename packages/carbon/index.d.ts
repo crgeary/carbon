@@ -29,15 +29,18 @@ export interface Actions {
     createNodeId(string: string, namespace: string): string;
     createNode(node: Node): void;
     updateNode(node: Node): void;
-    getNodes(): Node[];
     createRoute(route: Route): void;
-    getRoutes(): Route[];
     getNodeContent(node: Node): Promise<string>;
+}
+
+export interface QueryHandler {
+    (input: string, params?: { [key: string]: any }, store?: string): unknown;
 }
 
 export interface HookParamsWithoutPlugin {
     actions: Actions;
     node?: Node;
+    query?: QueryHandler;
     [key: string]: unknown;
 }
 

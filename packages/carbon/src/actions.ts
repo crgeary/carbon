@@ -14,10 +14,6 @@ export const createNode = (node: Node): void => {
     db.get('nodes').push(node).write();
 };
 
-export const getNodes = (): Node[] => {
-    return db.get('nodes').value();
-};
-
 export const updateNode = (node: Node): void => {
     db.get('nodes').find({ id: node.id }).assign(node).write();
 };
@@ -29,8 +25,4 @@ export const getNodeContent = async (node: Node): Promise<string> => {
 
 export const createRoute = (route: Route): void => {
     db.get('routes').push(route).value();
-};
-
-export const getRoutes = (): Route[] => {
-    return db.get('routes').value();
 };

@@ -6,7 +6,10 @@ import { loadConfig } from '../config';
 import { run } from '../hooks';
 import { normalizePath } from '../routes';
 
-import { createNode, createNodeId, updateNode, getNodes, createRoute, getRoutes, getNodeContent } from '../actions';
+import { db } from '../db';
+import { query } from '../query';
+
+import { createNode, createNodeId, updateNode, createRoute, getNodeContent } from '../actions';
 
 import { Actions } from '../..';
 
@@ -16,27 +19,26 @@ export const handler = async ({ dir }: { dir: string }) => {
         createNode,
         createNodeId,
         updateNode,
-        getNodes,
         createRoute,
-        getRoutes,
         getNodeContent,
     };
-    await run('source', { actions });
+    await run('source', { actions, query });
 
-    const nodes = getNodes().map((node) => run('transform', { actions, node }));
-    const chunks = chunk(nodes, 250);
+    const nodes = db.get('nodes').value();
+    const nodePromises = nodes.map((node) => run('transform', { actions, query, node }));
+    const chunks = chunk(nodePromises, 250);
 
     for (let i = 0; i < chunks.length; i++) {
         await Promise.all(chunks[i]);
     }
 
-    await run('create', { actions });
-    await run('build', { actions });
+    await run('create', { actions, query });
+    await run('build', { actions, query });
 
     await fs.emptyDir(path.join(dir, 'dist'));
     await fs.copy(path.join(dir, 'static'), path.join(dir, 'dist'));
 
-    const routes = getRoutes();
+    const routes = db.get('routes').value();
     for (let i = 0; i < routes.length; i++) {
         await fs.outputFile(path.join(dir, 'dist', normalizePath(routes[i].path)), JSON.stringify(routes[i]));
     }
