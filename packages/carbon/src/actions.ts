@@ -20,7 +20,7 @@ export const updateNode = (node: Node): void => {
 
 export const getNodeContent = async (node: Node): Promise<string> => {
     // todo: allow for custom loaders
-    return node.__carbon.content;
+    return node.internal.content;
 };
 
 export const createRoute = (route: Route): void => {

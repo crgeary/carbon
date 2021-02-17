@@ -11,7 +11,7 @@ export interface Plugin {
 
 export interface Node {
     id: string;
-    __carbon: {
+    internal: {
         type: string;
         mediaType?: string | null;
         content: string;

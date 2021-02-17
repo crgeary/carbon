@@ -4,7 +4,7 @@ import * as marked from 'marked';
 import { HookParams } from '@crgeary/carbon';
 
 export const transform = async ({ actions, node, plugin }: HookParams) => {
-    const { mediaType } = node.__carbon;
+    const { mediaType } = node.internal;
     if (!mediaType || mediaType !== `text/markdown`) {
         return node;
     }
@@ -15,8 +15,8 @@ export const transform = async ({ actions, node, plugin }: HookParams) => {
     const doc = matter(content);
     actions.updateNode({
         ...node,
-        __carbon: {
-            ...node.__carbon,
+        internal: {
+            ...node.internal,
             content: marked(doc.content),
         },
         frontmatter: doc.data,

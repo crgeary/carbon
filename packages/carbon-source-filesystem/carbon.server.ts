@@ -22,7 +22,7 @@ export const source = async ({ actions, plugin }: HookParams) => {
                 base: _path.base,
                 path: file,
             },
-            __carbon: {
+            internal: {
                 type: `FILE`,
                 mediaType: mime.lookup(_path.ext) || null,
                 content: content,
