@@ -5,6 +5,12 @@ import { InternalDatabaseSchema } from '..';
 
 const db = low(new Memory<InternalDatabaseSchema>(''));
 
-db.defaults({ nodes: [], config: {}, plugins: [], routes: [] }).write();
+db.defaults({
+    config: {},
+    nodes: [],
+    routes: [],
+    plugins: [],
+    templateHandlers: [],
+}).write();
 
 export { db };

@@ -22,7 +22,18 @@ export interface Node {
 
 export interface Route {
     path: string;
-    context: object;
+    template?: string;
+    context: {
+        [key: string]: unknown;
+    };
+}
+
+export interface TemplateHandler {
+    (templatePath: string, params: { [key: string]: unknown }): string;
+}
+
+export interface TemplateHandlerParams {
+    match: string[];
 }
 
 export interface Actions {
@@ -30,11 +41,12 @@ export interface Actions {
     createNode(node: Node): void;
     updateNode(node: Node): void;
     createRoute(route: Route): void;
+    setTemplateHandler(handler: TemplateHandler, params: TemplateHandlerParams): void;
     getNodeContent(node: Node): Promise<string>;
 }
 
 export interface QueryHandler {
-    (input: string, params?: { [key: string]: any }, store?: string): unknown;
+    (input: string, params?: { [key: string]: unknown }, store?: string): unknown;
 }
 
 export interface HookParamsWithoutPlugin {
@@ -55,11 +67,17 @@ export interface Hooks {
     build(params: HookParams): Promise<never>;
 }
 
-export type HooksList = 'source' | 'transform' | 'create' | 'build';
+export type HooksList = 'bootstrap' | 'source' | 'transform' | 'create' | 'build';
+
+export interface TemplateHandlerMatch {
+    match: string;
+    handler: TemplateHandler;
+}
 
 export interface InternalDatabaseSchema {
     nodes: Node[];
     routes: Route[];
     config: Config;
     plugins: Plugin[];
+    templateHandlers: TemplateHandlerMatch[];
 }

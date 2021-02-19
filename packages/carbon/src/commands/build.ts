@@ -5,11 +5,12 @@ import { chunk } from 'lodash';
 import { loadConfig } from '../config';
 import { run } from '../hooks';
 import { normalizePath } from '../routes';
+import { getTemplateHandler } from '../templates';
 
 import { db } from '../db';
 import { query } from '../query';
 
-import { createNode, createNodeId, updateNode, createRoute, getNodeContent } from '../actions';
+import { createNode, createNodeId, updateNode, createRoute, getNodeContent, setTemplateHandler } from '../actions';
 
 import { Actions } from '../..';
 
@@ -21,7 +22,9 @@ export const handler = async ({ dir }: { dir: string }) => {
         updateNode,
         createRoute,
         getNodeContent,
+        setTemplateHandler,
     };
+    await run('bootstrap', { actions, query });
     await run('source', { actions, query });
 
     const nodes = db.get('nodes').value();
@@ -39,8 +42,13 @@ export const handler = async ({ dir }: { dir: string }) => {
     await fs.copy(path.join(dir, 'static'), path.join(dir, 'dist'));
 
     const routes = db.get('routes').value();
+
     for (let i = 0; i < routes.length; i++) {
-        await fs.outputFile(path.join(dir, 'dist', normalizePath(routes[i].path)), JSON.stringify(routes[i]));
+        const handler = getTemplateHandler(routes[i].template || '');
+        await fs.outputFile(
+            path.join(dir, 'dist', normalizePath(routes[i].path)),
+            handler(routes[i].template || '', {})
+        );
     }
 
     console.log('done');
