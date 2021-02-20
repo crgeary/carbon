@@ -7,13 +7,17 @@
     "scripts": {
         "build": "tsc",
         "format": "prettier --ignore-path .gitignore --write .",
-        "watch": "tsc --project tsconfig.json --watch"
+        "watch": "tsc --project tsconfig.json --watch",
+        "prepublish": "npm run build"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/crgeary/carbon.git",
         "directory": "packages/carbon-plugin-edge"
     },
+    "files": [
+        "carbon.server.js"
+    ],
     "publishConfig": {
         "access": "public"
     },

@@ -4,16 +4,22 @@
     "version": "1.0.0",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
+    "types": "index.d.ts",
     "scripts": {
         "build": "tsc",
         "format": "prettier --ignore-path .gitignore --write .",
-        "watch": "tsc --project tsconfig.json --watch"
+        "watch": "tsc --project tsconfig.json --watch",
+        "prepublish": "npm run build"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/crgeary/carbon.git",
         "directory": "packages/carbon"
     },
+    "files": [
+        "dist/",
+        "index.d.ts"
+    ],
     "publishConfig": {
         "access": "public"
     },
