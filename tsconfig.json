@@ -1,13 +1,12 @@
 {
     "compilerOptions": {
+        "strict": true,
         "esModuleInterop": true,
-        "target": "es6",
-        "module": "commonjs",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "outDir": "dist",
-        "pretty": true,
-        "allowJs": true
-    },
-    "include": ["bin/**/*", "src/**/*"]
+        "allowSyntheticDefaultImports": true,
+        "lib": ["es2019"],
+        "target": "es2019",
+        "module": "commonjs"
+    }
 }

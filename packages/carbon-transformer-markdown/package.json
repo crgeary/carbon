@@ -1,0 +1,32 @@
+{
+    "name": "@crgeary/carbon-transformer-markdown",
+    "description": "Transforms markdown to html for Carbon",
+    "version": "0.0.1",
+    "author": "Christopher Geary <hello@crgeary.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc",
+        "format": "prettier --ignore-path .gitignore --write .",
+        "watch": "tsc --project tsconfig.json --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/crgeary/carbon.git",
+        "directory": "packages/carbon-transformer-markdown"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "gray-matter": "^4.0.2",
+        "marked": "^2.0.0"
+    },
+    "devDependencies": {
+        "@crgeary/configuration-prettier": "^1.0.3",
+        "@types/marked": "^1.2.2",
+        "@types/node": "^14.14.25",
+        "prettier": "^2.2.1",
+        "typescript": "^4.1.3"
+    },
+    "prettier": "@crgeary/configuration-prettier"
+}
