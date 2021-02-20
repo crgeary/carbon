@@ -4,8 +4,7 @@
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "workspaces": [
-        "packages/*",
-        "www"
+        "packages/*"
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap",
