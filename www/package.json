@@ -1,0 +1,19 @@
+{
+    "name": "www",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "build": "carbon build",
+        "serve": "carbon serve"
+    },
+    "dependencies": {
+        "@crgeary/carbon": "^1.0.0",
+        "@crgeary/carbon-cli": "^1.0.0",
+        "@crgeary/carbon-transformer-markdown": "^1.0.0"
+    },
+    "devDependencies": {
+        "@crgeary/configuration-prettier": "^1.0.3",
+        "js-ray": "^0.0.7",
+        "prettier": "^2.2.1"
+    }
+}

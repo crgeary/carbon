@@ -1,7 +1,7 @@
 {
     "name": "@crgeary/carbon-plugin-edge",
     "description": "Adds edge.js template support to Carbon",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "scripts": {

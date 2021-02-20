@@ -1,7 +1,7 @@
 {
     "name": "@crgeary/carbon-transformer-markdown",
     "description": "Transforms markdown to html for Carbon",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "scripts": {
