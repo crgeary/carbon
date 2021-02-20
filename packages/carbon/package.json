@@ -1,7 +1,7 @@
 {
     "name": "@crgeary/carbon",
     "description": "A static site generator.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "types": "index.d.ts",
@@ -24,7 +24,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@crgeary/carbon-cli": "^1.0.0",
+        "@crgeary/carbon-cli": "^1.0.1",
         "fs-extra": "^9.1.0",
         "groq-js": "^0.2.0",
         "lodash": "^4.17.20",

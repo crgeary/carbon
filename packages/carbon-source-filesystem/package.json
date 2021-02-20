@@ -1,7 +1,7 @@
 {
     "name": "@crgeary/carbon-source-filesystem",
     "description": "Sources local files for Carbon",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "scripts": {
