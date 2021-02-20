@@ -11,11 +11,13 @@ Built as an educational project, not intended for production use. This has been 
 ## Features
 
 -   🔌&nbsp; Pluggable
--   📄&nbsp; Multiple content sources
+-   📄&nbsp; Unlimited content sources
+-   🏗&nbsp; Unlimited template engines
+-   🚫&nbsp; No generated JavaScript
 
 ## Examples
 
--   [examples/basic](Basic)
+-   [Basic](examples/basic)
 
 ## Contributing
 
