@@ -47,7 +47,7 @@ export const handler = async ({ dir }: { dir: string }) => {
         const handler = getTemplateHandler(routes[i].template || '');
         await fs.outputFile(
             path.join(dir, 'dist', normalizePath(routes[i].path)),
-            handler(routes[i].template || '', {})
+            await handler(routes[i].template || '', routes[i].context)
         );
     }
 

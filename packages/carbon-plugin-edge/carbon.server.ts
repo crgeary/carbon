@@ -4,7 +4,7 @@ import path from 'path';
 
 import { HookParams } from '@crgeary/carbon';
 
-const renderEdge = (templatePath: string, params: { [key: string]: unknown }) => {
+const renderEdge = async (templatePath: string, params: { [key: string]: unknown }) => {
     return edge.render(templatePath, params);
 };
 exports.bootstrap = async ({ actions, plugin }: HookParams) => {

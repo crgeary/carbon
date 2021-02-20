@@ -1,7 +1,11 @@
 import micromatch from 'micromatch';
 
 import { db } from './db';
-import { TemplateHandlerMatch } from '..';
+
+export const fallbackHandler = async (templatePath: string, params: { [key: string]: unknown }): Promise<string> => {
+    const template = require(templatePath);
+    return await template.render({ context: params });
+};
 
 export const getTemplateHandler = (templatePath: string) => {
     const handlers = db.get('templateHandlers').value();
@@ -10,5 +14,5 @@ export const getTemplateHandler = (templatePath: string) => {
             return handlers[i].handler;
         }
     }
-    return () => {};
+    return fallbackHandler;
 };

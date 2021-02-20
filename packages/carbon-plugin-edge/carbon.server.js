@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // @ts-ignore
 const edge_js_1 = __importDefault(require("edge.js"));
-const renderEdge = (templatePath, params) => {
+const renderEdge = async (templatePath, params) => {
     return edge_js_1.default.render(templatePath, params);
 };
 exports.bootstrap = async ({ actions, plugin }) => {

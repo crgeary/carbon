@@ -29,7 +29,7 @@ export interface Route {
 }
 
 export interface TemplateHandler {
-    (templatePath: string, params: { [key: string]: unknown }): string;
+    (templatePath: string, params: { [key: string]: unknown }): Promise<string>;
 }
 
 export interface TemplateHandlerParams {
@@ -61,6 +61,7 @@ export interface HookParams extends HookParamsWithoutPlugin {
 }
 
 export interface Hooks {
+    bootstrap(params: HookParams): Promise<never>;
     source(params: HookParams): Promise<never>;
     transform(params: HookParams): Promise<never>;
     create(params: HookParams): Promise<never>;
