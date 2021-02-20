@@ -6,6 +6,7 @@ import { loadConfig } from '../config';
 import { run } from '../hooks';
 import { normalizePath } from '../routes';
 import { getTemplateHandler } from '../templates';
+import * as reporter from '../reporter';
 
 import { db } from '../db';
 import { query } from '../query';
@@ -51,5 +52,5 @@ export const handler = async ({ dir }: { dir: string }) => {
         );
     }
 
-    console.log('done');
+    reporter.info('done');
 };
