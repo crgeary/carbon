@@ -10,7 +10,8 @@
         "bootstrap": "lerna bootstrap",
         "format": "lerna run format",
         "lerna": "lerna",
-        "watch": "lerna run watch --no-sort --stream"
+        "watch": "lerna run watch --no-sort --stream",
+        "build": "lerna run build"
     },
     "devDependencies": {
         "lerna": "^3.22.1"
