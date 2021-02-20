@@ -13,6 +13,10 @@ Built as an educational project, not intended for production use. This has been 
 -   🔌&nbsp; Pluggable
 -   📄&nbsp; Multiple content sources
 
+## Examples
+
+-   [examples/basic](Basic)
+
 ## Contributing
 
 Carbon is a monorepo written in TypeScript. It's managed by Lerna, and uses Yarn workspaces.

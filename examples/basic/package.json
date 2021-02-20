@@ -1,0 +1,12 @@
+{
+    "name": "basic",
+    "private": true,
+    "scripts": {
+        "build": "carbon build"
+    },
+    "dependencies": {
+        "@crgeary/carbon": "^1.0.0",
+        "@crgeary/carbon-cli": "^1.0.0",
+        "@crgeary/carbon-source-filesystem": "^1.0.0"
+    }
+}
