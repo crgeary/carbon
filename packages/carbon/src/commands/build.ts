@@ -40,7 +40,10 @@ export const handler = async ({ dir }: { dir: string }) => {
     await run('build', { actions, query });
 
     await fs.emptyDir(path.join(dir, 'dist'));
-    await fs.copy(path.join(dir, 'static'), path.join(dir, 'dist'));
+
+    if (await fs.pathExists(path.join(dir, 'static'))) {
+        await fs.copy(path.join(dir, 'static'), path.join(dir, 'dist'));
+    }
 
     const routes = db.get('routes').value();
 
