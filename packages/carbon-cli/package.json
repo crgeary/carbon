@@ -7,6 +7,12 @@
     "bin": {
         "carbon": "./cli.js"
     },
+    "keywords": [
+        "carbon",
+        "jamstack",
+        "static site generator",
+        "cli"
+    ],
     "scripts": {
         "build": "tsc",
         "format": "prettier --ignore-path .gitignore --write .",
@@ -18,10 +24,17 @@
         "url": "https://github.com/crgeary/carbon.git",
         "directory": "packages/carbon-cli"
     },
+    "bugs": {
+        "url": "https://github.com/crgeary/carbon/issues"
+    },
+    "homepage": "https://github.com/crgeary/carbon/tree/master/packages/carbon-cli",
     "files": [
         "dist/",
         "cli.js"
     ],
+    "engines": {
+        "node": ">=12.0.0"
+    },
     "publishConfig": {
         "access": "public"
     },

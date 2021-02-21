@@ -5,6 +5,11 @@
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "types": "index.d.ts",
+    "keywords": [
+        "carbon",
+        "jamstack",
+        "static site generator"
+    ],
     "scripts": {
         "build": "tsc",
         "format": "prettier --ignore-path .gitignore --write .",
@@ -16,10 +21,17 @@
         "url": "https://github.com/crgeary/carbon.git",
         "directory": "packages/carbon"
     },
+    "bugs": {
+        "url": "https://github.com/crgeary/carbon/issues"
+    },
+    "homepage": "https://github.com/crgeary/carbon/tree/master/packages/carbon",
     "files": [
         "dist/",
         "index.d.ts"
     ],
+    "engines": {
+        "node": ">=12.0.0"
+    },
     "publishConfig": {
         "access": "public"
     },

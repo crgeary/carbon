@@ -4,6 +4,13 @@
     "version": "1.0.1",
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
+    "keywords": [
+        "carbon",
+        "jamstack",
+        "static site generator",
+        "carbon-plugin",
+        "edge.js"
+    ],
     "scripts": {
         "build": "tsc",
         "format": "prettier --ignore-path .gitignore --write .",
@@ -15,9 +22,16 @@
         "url": "https://github.com/crgeary/carbon.git",
         "directory": "packages/carbon-plugin-edge"
     },
+    "bugs": {
+        "url": "https://github.com/crgeary/carbon/issues"
+    },
+    "homepage": "https://github.com/crgeary/carbon/tree/master/packages/carbon-plugin-edge",
     "files": [
         "carbon.server.js"
     ],
+    "engines": {
+        "node": ">=12.0.0"
+    },
     "publishConfig": {
         "access": "public"
     },
