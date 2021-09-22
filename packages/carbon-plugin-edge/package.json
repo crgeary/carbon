@@ -36,7 +36,7 @@
         "access": "public"
     },
     "dependencies": {
-        "edge.js": "^1.1.4"
+        "edge.js": "^5.3.2"
     },
     "devDependencies": {
         "@crgeary/configuration-prettier": "^1.0.3",
