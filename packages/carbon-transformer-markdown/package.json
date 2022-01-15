@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "gray-matter": "^4.0.2",
-        "marked": "^2.0.0"
+        "marked": "^4.0.10"
     },
     "devDependencies": {
         "@crgeary/configuration-prettier": "^1.0.3",
